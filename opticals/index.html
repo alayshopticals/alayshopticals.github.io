@@ -25,6 +25,7 @@
     <link href="assets/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/aos.css" rel="stylesheet">
     <link href="assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- Back to top button -->
@@ -834,7 +835,7 @@ Abu Dhabi, UAE.
             </figure>
         </div>
         <div class="body" style="display: none;">
-            <form action="javascript:;">
+            <form action="" id="submit-form">
                 <div class="form-group mb-0">
                     <input type="text" class="form_style" placeholder="Name" name="fname" required>
                 </div>
@@ -849,6 +850,25 @@ Abu Dhabi, UAE.
                 </div>
                 <button type="submit" class="submit_now text-decoration-none">Submit Now<i class="fa-solid fa-arrow-right"></i></button>
             </form>
+            <script>
+                    $("#submit-form").submit((e)=>{
+                    e.preventDefault()
+                    $.ajax({
+                    url:"https://script.google.com/macros/s/AKfycbxKwFKTWqdgZFamUvLAxB-qo9xDMIvYbhP0qglF28a376ab-IIAyzXRI22LFFnrPyh8Pw/exec",
+                    data:$("#submit-form").serialize(),
+                    method:"post",
+                    success:function (response){
+                    alert("Our sales team will contact you shortly. Thank you!")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                    },
+                    error:function (err){
+                    alert("Something Error")
+                    
+                    }
+                    })
+                    })
+                    </script>
         </div>
     </div>
     <div class="copyright">
